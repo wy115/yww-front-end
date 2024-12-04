@@ -11,6 +11,7 @@ import * as ElementPlusIconsVue from "@element-plus/icons-vue";
 //国际化
 import i18n from "@/locales";
 
+import '@/styles/tailwind.css'
 const app = createApp(App);
 
 app.use(router);

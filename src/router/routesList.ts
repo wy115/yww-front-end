@@ -1,9 +1,9 @@
 import type { RouteRecordRaw } from "vue-router";
 export const routesList: RouteRecordRaw[] = [
   {
-    path: "/homepage",
+    path: "/",
     name: "HomePage",
-    component: () => import("@/views/homePage/index.vue"),
+    component: () => import("@/views/allViews/index.vue"),
     meta: {
       title: "首页",
       icon: "GoodsFilled",
