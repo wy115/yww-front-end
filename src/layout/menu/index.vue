@@ -7,18 +7,18 @@
       default-active="1"
       size="large"
       text-color="#fff"
-      :collapse="isCollapse"
+      collapse="true"
     >
       <el-menu-item
         v-for="(item, index) in routesList"
         :index="index + 1"
         :key="item.name"
       >
-        <RouterLink :to="item.path" active-class="active">
+        <a @click="scrollTo('#' + (item.meta as any).id)">
           <el-icon>
             <component :is="(item.meta as any).icon" />
           </el-icon>
-        </RouterLink>
+        </a>
         <template #title>{{ (item.meta as any).title }}</template>
       </el-menu-item>
     </el-menu>
@@ -26,12 +26,15 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
 import { routesList } from "@/router/routesList";
 
-console.log(routesList);
-
-const isCollapse = ref<boolean>(true);
+const scrollTo = (selector: string) => {
+  console.log(selector);
+  const element = document.querySelector(selector);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+};
 </script>
 <style scoped lang="less">
 .layout-menu {

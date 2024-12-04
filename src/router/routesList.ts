@@ -7,6 +7,7 @@ export const routesList: RouteRecordRaw[] = [
     meta: {
       title: "首页",
       icon: "GoodsFilled",
+      id: "home-page",
     },
   },
   {
@@ -16,6 +17,7 @@ export const routesList: RouteRecordRaw[] = [
     meta: {
       title: "个人介绍",
       icon: "Stamp",
+      id: "personal-introduction",
     },
   },
   {

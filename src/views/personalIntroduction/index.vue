@@ -1,5 +1,6 @@
 <template>
   <div
+    id="personal-introduction"
     class="bg-[#1e1e1f] px-5 py-5 md:px-12 md:py-10 text-left border border-[#383838] rounded-3xl text-amber-50 mx-3 mb-5 mt-3"
   >
     <article data-page="about">
