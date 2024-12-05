@@ -1,8 +1,21 @@
 export default {
-  // 路由国际化
-  route: {
-    homePage: '首页',
-    personalIntroduction: '个人介绍',
-    projectIntroduction: '项目介绍',
-  }
-}
+  //路由
+  首页: "首页",
+  个人介绍: "个人介绍",
+  项目介绍: "项目介绍",
+
+  //个人介绍
+  关于我: "关于我",
+  personalOne: " · Hi! 我是韦耀",
+  personalTwo: "  · 00后 现居江苏南京",
+  personalThree: "  · 身高184 CM ，体重70kg",
+  personalFour: "   · 2022年毕业于宁波财经学院-计算机科学与技术专业",
+
+  companyOne: {
+    name: "智慧芽信息科技(苏州)有限公司",
+    job: "前端开发工程师",
+    department: "运维部门",
+    content: "主要负责公司内部运维部门与算法部门联合构建的AI管理平台前端工作",
+    reason: "公司在苏州，想要回到南京",
+  },
+};

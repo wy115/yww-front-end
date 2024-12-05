@@ -8,7 +8,7 @@
         <div
           class="text-2xl font-bold text-white mb-5 fadein-bot title-section flex items-center"
         >
-          About Me &nbsp;
+          {{ $t("关于我") }} &nbsp;
           <div
             class="h-[1px] w-32 bg-amber-200 md:w-96 aos-init aos-animate"
             data-aos="zoom-in-left"
@@ -23,8 +23,9 @@
         <div class="flex justify-center">
           <img
             class="w-9/12 rounded-full mb-3 fadein-up pict"
-            src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/common/IDFLLBMA-17115219024863b566a8d925c91990b8486e21b67e871.JPG"
+            src="/public/images/personal/profile.jpg"
             alt="Foto"
+            style="width: 300px; height: 300px; object-fit: cover"
           />
         </div>
         <div class="md:w-7/12">
@@ -32,19 +33,19 @@
             <li
               class="bg-clip-text bg-gradient-to-r from-slate-100 to-amber-300 text-transparent"
             >
-              · Hi! 我是韦耀
+              {{ $t("personalOne") }} &nbsp;
             </li>
             <br />
             <li
               class="bg-clip-text bg-gradient-to-l from-slate-100 to-amber-300 text-transparent"
             >
-              · 00后 现居江苏南京
+              {{ $t("personalTwo") }} &nbsp;
             </li>
             <br />
             <li
               class="bg-clip-text bg-gradient-to-r from-slate-100 to-amber-300 text-transparent"
             >
-              · 身高184 CM ，体重70kg
+              {{ $t("personalThree") }} &nbsp;
             </li>
           </ul>
 
@@ -52,50 +53,64 @@
             <li
               class="bg-clip-text bg-gradient-to-l from-slate-100 to-amber-300 text-transparent"
             >
-              · 2022年毕业于宁波财经学院-计算机科学与技术专业
+              {{ $t("personalFour") }} &nbsp;
             </li>
           </ul>
         </div>
       </section>
 
       <section
+        style="margin-top: 50px"
         class="text-sm md:text-lg text-justify flex flex-col gap-4 md:flex-row md:gap-8 md:justify-left md:items-center"
       >
         <div class="flex justify-center">
           <el-timeline>
-            <el-timeline-item center timestamp="2018/4/12" placement="top">
-              <el-card>
-                <h4>Update Github template</h4>
-                <p>Tom committed 2018/4/12 20:46</p>
+            <el-timeline-item
+              @click="changeBeChoosed(index)"
+              center
+              v-for="(item, index) in companyList"
+              :timestamp="item.time"
+              placement="top"
+            >
+              <el-card v-show="item.beChoosed">
+                <h1>{{ item.name }}</h1>
+                <h2>{{ item.job }}</h2>
+                <h5>{{ item.department }}</h5>
               </el-card>
-            </el-timeline-item>
-            <el-timeline-item timestamp="2018/4/3" placement="top">
-              <el-card>
-                <h4>Update Github template</h4>
-                <p>Tom committed 2018/4/3 20:46</p>
-              </el-card>
-            </el-timeline-item>
-            <el-timeline-item center timestamp="2018/4/2" placement="top">
-              Event start
-            </el-timeline-item>
-            <el-timeline-item timestamp="2018/4/2" placement="top">
-              Event end
+              <h1 v-show="!item.beChoosed">{{ item.name }}</h1>
             </el-timeline-item>
           </el-timeline>
         </div>
         <div class="flex justify-center">
-          <!-- rounded-full -->
+          <!-- rounded-full
           <img
             class="w-9/12 mb-3 fadein-up pict"
             src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/common/HHADFBKF-1711531032290119e84834fd183e316bb7643b0c456c7.JPG"
             alt="Foto"
-          />
+          /> -->
         </div>
       </section>
     </article>
   </div>
 </template>
-<script setup lang="ts"></script>
+
+<script setup lang="ts">
+import { reactive } from "vue";
+import { companyInformation } from "./data";
+
+const companyList = reactive([...companyInformation]);
+const changeBeChoosed = (v: number) => {
+  console.log("1111");
+
+  companyList.forEach((item, index) => {
+    if (v === index) {
+      item.beChoosed = true;
+    } else {
+      item.beChoosed = false;
+    }
+  });
+};
+</script>
 
 <style scoped lang="less">
 .fadein-left {

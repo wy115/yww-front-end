@@ -8,7 +8,7 @@
       <h1 class="text-4xl font-bold md:text-5xl text-white fadein-up">
         Wei Yao <span class="wave">👋🏼</span>
       </h1>
-      <div class="py-2">
+      <div class="py-2" style="min-height: 50px;">
         <h1
           class="typewrite text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-slate-100 to-yellow-500 md:text-2xl fadein-up"
           ref="typewriter"
