@@ -20,7 +20,7 @@
       <section
         class="text-sm md:text-lg text-justify flex flex-col gap-4 md:flex-row md:gap-8 md:justify-left md:items-center"
       >
-        <div class="flex justify-center">
+        <div class="flex justify-center" style="flex: 1">
           <img
             class="w-9/12 rounded-full mb-3 fadein-up pict"
             src="/public/images/personal/profile.jpg"
@@ -63,7 +63,7 @@
         style="margin-top: 50px"
         class="text-sm md:text-lg text-justify flex flex-col gap-4 md:flex-row md:gap-8 md:justify-left md:items-center"
       >
-        <div class="flex justify-center">
+        <div class="flex justify-center" style="flex: 1">
           <el-timeline>
             <el-timeline-item
               @click="changeBeChoosed(index)"
@@ -74,20 +74,43 @@
             >
               <el-card v-show="item.beChoosed">
                 <h1>{{ item.name }}</h1>
-                <h2>{{ item.job }}</h2>
-                <h5>{{ item.department }}</h5>
+                <h2>{{ $t("职位") + item.job }}</h2>
               </el-card>
               <h1 v-show="!item.beChoosed">{{ item.name }}</h1>
             </el-timeline-item>
           </el-timeline>
         </div>
-        <div class="flex justify-center">
-          <!-- rounded-full
-          <img
-            class="w-9/12 mb-3 fadein-up pict"
-            src="https://panshi-on.oss-cn-hangzhou.aliyuncs.com/yunxiaoding-mini/other/common/HHADFBKF-1711531032290119e84834fd183e316bb7643b0c456c7.JPG"
-            alt="Foto"
-          /> -->
+        <div class="md:w-7/12">
+          <ul class="mb-3 md:mb-7 fadein-left fadeins-1">
+            <li
+              class="bg-clip-text bg-gradient-to-l from-slate-100 to-amber-300 text-transparent"
+            >
+              {{
+                $t("部门") +
+                companyList.filter((v) => v.beChoosed)[0].department
+              }}
+              &nbsp;
+            </li>
+            <li
+              class="bg-clip-text bg-gradient-to-l from-slate-100 to-amber-300 text-transparent"
+            >
+              {{
+                $t("主要职责") +
+                companyList.filter((v) => v.beChoosed)[0].content
+              }}
+              &nbsp;
+            </li>
+          </ul>
+          <ul class="mb-3 md:mb-7 fadein-left fadeins-2">
+            <li
+              class="bg-clip-text bg-gradient-to-l from-slate-100 to-amber-300 text-transparent"
+            >
+            {{
+                $t("离职原因") +
+                companyList.filter((v) => v.beChoosed)[0].reason
+              }} &nbsp;
+            </li>
+          </ul>
         </div>
       </section>
     </article>

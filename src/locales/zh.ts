@@ -10,7 +10,10 @@ export default {
   personalTwo: "  · 00后 现居江苏南京",
   personalThree: "  · 身高184 CM ，体重70kg",
   personalFour: "   · 2022年毕业于宁波财经学院-计算机科学与技术专业",
-
+  职位: "职位：",
+  部门: "部门：",
+  主要职责: "主要职责：",
+  离职原因: "离职原因：",
   companyOne: {
     name: "智慧芽信息科技(苏州)有限公司",
     job: "前端开发工程师",
